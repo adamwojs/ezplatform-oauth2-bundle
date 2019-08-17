@@ -1,0 +1,23 @@
+ezplatform.oauth2.client.list:
+    path: /oauth2/client
+    methods: [GET]
+    defaults:
+        _controller: 'AdamWojs\EzPlatformOAuth2Bundle\Controller\OAuth2ClientController::indexAction'
+
+ezplatform.oauth2.client.create:
+    path: /oauth2/client/create
+    methods: [GET, POST]
+    defaults:
+        _controller: 'AdamWojs\EzPlatformOAuth2Bundle\Controller\OAuth2ClientController::createAction'
+
+ezplatform.oauth2.client.update:
+    path: /oauth2/client/update/{identifier}
+    methods: [GET, POST]
+    defaults:
+        _controller: 'AdamWojs\EzPlatformOAuth2Bundle\Controller\OAuth2ClientController::updateAction'
+
+ezplatform.oauth2.client.delete:
+    path: /oauth2/client/delete
+    methods: [POST]
+    defaults:
+        _controller: 'AdamWojs\EzPlatformOAuth2Bundle\Controller\OAuth2ClientController::deleteAction'

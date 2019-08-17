@@ -1,0 +1,98 @@
+{% extends "@ezdesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ezplatform_oauth2' %}
+
+{% form_theme bulk_action_form _self %}
+
+{% block breadcrumbs %}
+    {% include '@ezdesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
+        { value: 'oauth2.client.index.title'|trans|desc('OAuth2 Clients') }
+    ]} %}
+{% endblock %}
+
+{% block page_title %}
+    {% include '@ezdesign/ui/page_title.html.twig' with {
+        title: 'oauth2.client.index.title'|trans|desc('OAuth2 Clients'),
+        icon_name: 'user_group'
+    } %}
+{% endblock %}
+
+{% block client_checkbox_widget %}
+<input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %} />
+{% endblock %}
+
+{% block content %}
+    {% set create_url = path('ezplatform.oauth2.client.create') %}
+    {% set delete_url = path('ezplatform.oauth2.client.delete') %}
+
+    {{ form_start(bulk_action_form) }}
+    <section class="container px-5 mt-4 pb-4">
+        <header class="ez-table-header">
+            <div class="ez-table-header__headline">
+                {{ 'oauth2.client.list.title'|trans|desc('Clients') }}
+            </div>
+            <div class="ez-table-header__actions">
+                <a href="{{ create_url }}" class="btn btn-primary">
+                    <svg class="ez-icon ez-icon-create">
+                        <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#create"></use>
+                    </svg>
+                </a>
+                <button formaction="{{ delete_url }}" class="btn btn-danger">
+                    <svg class="ez-icon ez-icon-trash">
+                        <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#trash"></use>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <table class="ez-table table">
+            <thead>
+            <tr>
+                <th></th>
+                <th class="ez-table__header-cell">
+                    {{ 'oauth2.client.list.column.identifier'|trans|desc('Identifier') }}
+                </th>
+                <th class="ez-table__header-cell">
+                    {{ 'oauth2.client.list.column.redirect_uris'|trans|desc('Redirect URIs') }}
+                </th>
+                <th class="ez-table__header-cell">
+                    {{ 'oauth2.client.list.column.scopes'|trans|desc('Scopes') }}
+                </th>
+                <th class="ez-table__header-cell">
+                    {{ 'oauth2.client.list.column.grants'|trans|desc('Grants') }}
+                </th>
+                <th class="ez-table__header-cell"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for client in clients %}
+                {% set edit_url = path('ezplatform.oauth2.client.update', { identifier: client.identifier }) %}
+
+                <tr>
+                    <td class="ez-table__cell ez-table__cell--has-checkbox">
+                        {{ form_widget(bulk_action_form.selection[client.identifier]) }}
+                    </td>
+                    <td class="ez-table__cell">{{ client.identifier }}</td>
+                    <td class="ez-table__cell">{{ client.redirectUris|join(', ') }}</td>
+                    <td class="ez-table__cell">{{ client.scopes|join(', ') }}</td>
+                    <td class="ez-table__cell">{{ client.grants|join(', ') }}</td>
+                    <td class="ez-table__cell ez-table__cell--has-action-btns text-right">
+                        <a href="{{ edit_url }}" class="btn btn-icon">
+                            <svg class="ez-icon ez-icon-edit">
+                                <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#edit"></use>
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td class="ez-table__cell ez-table__cell--no-content" colspan="6">
+                        <span class="mb-0 py-1 pl-0">{{ 'oauth2.client.list.empty'|trans|desc('No clients configured. Clients you\'ll create will appear here.') }}</span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    {{ form_end(bulk_action_form) }}
+{% endblock %}

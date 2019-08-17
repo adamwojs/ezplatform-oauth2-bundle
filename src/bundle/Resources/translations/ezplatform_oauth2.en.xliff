@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="8f07499decf78f505e088efc83bbcebb7ff79339" resname="oauth2.client.create.title">
+        <source>Creating a new Client</source>
+        <target state="new">Creating a new Client</target>
+        <note>key: oauth2.client.create.title</note>
+      </trans-unit>
+      <trans-unit id="63868a0b8c4f83b8f9f73d19dd4764fa9cde8cb5" resname="oauth2.client.index.title">
+        <source>OAuth2 Clients</source>
+        <target state="new">OAuth2 Clients</target>
+        <note>key: oauth2.client.index.title</note>
+      </trans-unit>
+      <trans-unit id="780ec2444ed371bca5d7cbf1df24d7e33e3bba15" resname="oauth2.client.list.column.grants">
+        <source>Grants</source>
+        <target state="new">Grants</target>
+        <note>key: oauth2.client.list.column.grants</note>
+      </trans-unit>
+      <trans-unit id="90b36d6e9fdc3d6856d8287aa60711ed8c9c7356" resname="oauth2.client.list.column.identifier">
+        <source>Identifier</source>
+        <target state="new">Identifier</target>
+        <note>key: oauth2.client.list.column.identifier</note>
+      </trans-unit>
+      <trans-unit id="bb795fc9236c1060b1b2a085aae744bde32d899d" resname="oauth2.client.list.column.redirect_uris">
+        <source>Redirect URIs</source>
+        <target state="new">Redirect URIs</target>
+        <note>key: oauth2.client.list.column.redirect_uris</note>
+      </trans-unit>
+      <trans-unit id="2ab4365bf39cbaa693bd132e6a36a1dd45c359e3" resname="oauth2.client.list.column.scopes">
+        <source>Scopes</source>
+        <target state="new">Scopes</target>
+        <note>key: oauth2.client.list.column.scopes</note>
+      </trans-unit>
+      <trans-unit id="da7e57236747ab254e3b7ce84de2888e7aeacd04" resname="oauth2.client.list.empty">
+        <source>No clients configured. Clients you'll create will appear here.</source>
+        <target state="new">No clients configured. Clients you'll create will appear here.</target>
+        <note>key: oauth2.client.list.empty</note>
+      </trans-unit>
+      <trans-unit id="949448979365d0d2f80fa6e30916c43024b2d004" resname="oauth2.client.list.title">
+        <source>Clients</source>
+        <target state="new">Clients</target>
+        <note>key: oauth2.client.list.title</note>
+      </trans-unit>
+      <trans-unit id="86832d043a7da43aa3b614176b9f4a75511163b1" resname="oauth2.client.update.title">
+        <source>Editing Client: %identifier%</source>
+        <target state="new">Editing Client: %identifier%</target>
+        <note>key: oauth2.client.update.title</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
