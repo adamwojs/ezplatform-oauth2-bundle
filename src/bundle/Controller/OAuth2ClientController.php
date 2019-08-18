@@ -74,8 +74,8 @@ final class OAuth2ClientController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-            $response = $this->submitHandler->handle($form, function (ClientData $data) {
-                $this->clientManager->save($data->toModel());
+            $response = $this->submitHandler->handle($form, function (ClientData $data) use ($client) {
+                $this->clientManager->save($data->toModel($client));
 
                 return $this->redirectToRoute('ezplatform.oauth2.client.list');
             });

@@ -91,9 +91,12 @@ final class ClientData
         $this->active = $active;
     }
 
-    public function toModel(): Client
+    public function toModel(?Client $model = null): Client
     {
-        $model = new Client($this->identifier, $this->secret);
+        if ($model === null) {
+            $model = new Client($this->identifier, $this->secret);
+        }
+
         $model->setActive($this->isActive());
 
         $model->setRedirectUris(...array_map(function (string $redirectUri): RedirectUri {
