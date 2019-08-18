@@ -20,7 +20,11 @@ final class ClientType extends AbstractType
         $builder->add('identifier', TextType::class, [
             'disabled' => $options['update'],
         ]);
-        $builder->add('secret', TextType::class);
+
+        $builder->add('secret', TextType::class, [
+            'disabled' => $options['update'],
+        ]);
+
         $builder->add('active', CheckboxType::class);
 
         $builder->add('redirectUris', CollectionType::class, [
