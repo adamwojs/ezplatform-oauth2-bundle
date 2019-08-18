@@ -1,0 +1,5 @@
+ezplatform.aouth.user.profiler:
+    path: /oauth2/user/profile
+    methods: [GET]
+    defaults:
+        _controller: 'AdamWojs\EzPlatformOAuth2Bundle\Controller\OAuth2ProfileController::viewAction'

@@ -12,6 +12,9 @@ services:
     AdamWojs\EzPlatformOAuth2Bundle\Controller\OAuth2ClientController:
         tags: ['controller.service_arguments']
 
+    AdamWojs\EzPlatformOAuth2Bundle\Controller\OAuth2ProfileController:
+        tags: ['controller.service_arguments']
+
     ### Forms
 
     AdamWojs\EzPlatformOAuth2Bundle\Form\Type\ScopeChoiceType:
